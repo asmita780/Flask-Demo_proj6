@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Registration form{% endblock %}
+
+{% block content %}
+
+    <form action="/" method="POST">
+
+        {{form.hidden_tag()}}
+
+        <p>
+            {{form.name.label}}<br> <!--accessing the label of name data-->
+            {{form.name(size=32)}}<br> <!--32 is name box size-->
+            {% for error in form.name.errors %}
+                <p style="color: red;">{{error}}</p>
+            {% endfor %}
+
+        </p>
+
+        <p>
+            {{form.email.label}}<br>
+            {{form.email(size=32)}}<br>
+            {% for error in form.email.errors %}
+                <p style="color: red;">{{error}}</p>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{form.password.label}}<br>
+            {{form.password(size=32)}}<br>
+            {% for error in form.password.errors %}
+                <p style="color: red;">{{error}}</p>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{form.submit()}}
+        </p>
+
+    </form>
+
+{% endblock %}
